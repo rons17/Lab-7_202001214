@@ -327,15 +327,72 @@ TP1 (EC2): A=0, B=4, C=5 (invalid input)<br>
 TP2 (EC2): A=-2, B=4, C=5 (invalid input)<br>
 Note: Test cases TC1 to TC10 covers all identified equivalence classes.<br>
 
+
+
 ## Section B:
+
 ### 1. Convert the Java code comprising the beginning of the doGraham method into a control flow graph (CFG).
+The code below is part of a method in the ConvexHull class in the VMAP
+system. The following is a small fragment of a method in the
+ConvexHull class. For the purposes of this exercise you do not need to
+know the intended function of the method. The parameter p is a Vector
+of Point objects, p.size() is the size of the vector p, (p.get(i)).x is the x
+component of the ith point appearing in p, similarly for (p.get(i)).y. This
+exercise is concerned with structural testing of code and so the focus is
+on creating test sets that satisfy some particular coverage criterion.
+
+![image](https://user-images.githubusercontent.com/124248015/231846167-98c93343-ced5-40ec-8463-ceed95e04f4a.png)
+
+#### Below is the java code of pseudo code given in question:
+
+![image](https://user-images.githubusercontent.com/124248015/231846789-b610d229-2176-46a4-a962-ebdbd45abc24.png)
+
+
 #### -Below is the control flow graph of the converted Java code:
 
-![image](https://user-images.githubusercontent.com/124248015/231727944-ad3e32c1-a94b-4eee-bf16-81c98b735228.png)
+![image](https://user-images.githubusercontent.com/124248015/231845424-48fbd361-542b-4fab-88c5-4fff2c20aae5.png)
 
 ### 2. Test sets for the given criteria:
 
-![image](https://user-images.githubusercontent.com/124248015/231728203-a5db4283-0596-4f6f-8b42-05c70f21edd9.png)
+1. Test set for Statement Coverage:
+ -The test set should cover every statement in the code at least once.
+### Test Set:
+#### ● p = new Point[]{new Point(0,0), new Point(1,1)}
+#### ● doGraham(p)
+
+Explanation:
+- This test set contains two points, one with coordinates (0,0) and the
+other with coordinates (1,1). The doGraham() method is called with
+these two points as input. This test set will cover every statement in the
+code at least once.
+
+2. Test set for Branch Coverage:
+- The test set should cover every possible branch in the code.
+### Test Set:
+#### • p = new Point[]{new Point(0,0), new Point(1,1), new Point(-1,-1)}
+#### • doGraham(p)
+
+Explanation:
+- This test set contains three points, one with coordinates (0,0), one with
+coordinates (1,1) and one with coordinates (-1, -1). The doGraham()
+method is called with these three points as input. This test set will cover
+every possible branch in the code.
+
+3) Test set for Basic Condition Coverage:
+- The test set should cover every possible condition in the code, including
+both true and false evaluations.
+### Test Set:
+#### • p = new Point[]{new Point(0,0), new Point(1,1), new Point(-1,-1)}
+#### • doGraham(p)
+
+Explanation:
+- This test set contains three points, one with coordinates (0,0), one with
+coordinates (1,1) and one with coordinates (-1, -1). The doGraham()
+method is called with these three points as input. This test set will cover
+every possible condition in the code, including both true and false
+evaluations.
+
+
 
 
 
